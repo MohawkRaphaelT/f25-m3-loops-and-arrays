@@ -11,7 +11,10 @@ namespace MohawkGame2D
     public class Game
     {
         // Place your variables here:
-
+        Color darkBlue  = new Color("#0f052d");
+        Color blue      = new Color("#203671");
+        Color lightBlue = new Color("#36868f");
+        Color green     = new Color("#5fc75d");
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -27,7 +30,20 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
-            Window.ClearBackground(Color.OffWhite);
+            Window.ClearBackground(darkBlue);
+            DrawRowOfClouds(blue,      275, 25, 13, 33);
+            DrawRowOfClouds(lightBlue, 325, 50,  7, 67);
+            DrawRowOfClouds(green,     400, 75,  5, 100);
+        }
+
+        void DrawRowOfClouds(Color cloudColor, int y, int r, int count, float space)
+        {
+            Draw.FillColor = cloudColor;
+            Draw.LineSize = 0;
+            for (int i = 0; i < count; i++)
+            {
+                Draw.Circle(space * i, y, r);
+            }
         }
     }
 
